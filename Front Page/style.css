@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'JI Burrito';
+    
+}
+
+@font-face {
+    font-family: 'JI Burrito';
+    src: url('../JI\ Burrito.ttf') format('truetype');
+}
+
+body {
+    background-image: url('../Images/menu-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(237, 184, 9, 0.626);
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 5.3rem;
+    color: #c02226;
+    -webkit-text-stroke: .001rem rgb(0, 0, 164);
+    text-shadow: 0 0 4px black;
+    cursor: pointer;
+    transition: all 100ms ease;
+    
+}
+
+h1:hover {
+    transition: all 100ms ease;
+    transform: scale(1.1);
+}
+
+img {
+    filter: drop-shadow(0 0 .4rem black);
+}
+
