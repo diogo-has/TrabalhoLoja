@@ -19,26 +19,21 @@
             <h2 onclick="window.location.href='../Order/order.html'">Menu</h2>
         </div>
     </header>
+    <button onclick="test()">haha</button>
     <div class="orders" id="orders">
-        <div class="order" id="order">
+        <div class="order" id="order1">
             <select name="" id="type">
                 <option selected>Categoria</option>
                 <option value="hamburgueres">Hambúrgueres</option>
                 <option value="frango">Frango</option>
                 <option value="acompanhamentos">Acompanhamentos</option>
                 <option value="bebidas">Bebidas</option>
+                <option value="combos">Combos</option>
             </select>
             <select name="" id="item">
                 <option selected>Selecione o item</option>
             </select>
-            <select name="" id="quantity">
-                <option selected>Quantidade</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+            <input type="number" id="quantity" placeholder="Quantidade"></input>
         </div>
     </div>
 </body>
