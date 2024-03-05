@@ -14,6 +14,14 @@ h2:hover {
     transition: all 100ms ease;
     padding: 10px 15px;
     transform: scale(1.05);
+    cursor: pointer ;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .nav {
@@ -36,4 +44,10 @@ h2:hover {
     align-items: center;
     gap: 15px;
     margin: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .itens {
+        flex-direction: column;
+    }
 }
