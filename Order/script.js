@@ -136,7 +136,7 @@ function updateOverview() {
     Array.from(o).forEach((order) => {
         var inputs = order.getElementsByClassName('input');
         var existingOvvwLine = document.getElementById(order.id + '-overview');
-        var text = `R$${(inputs[2].value * prices[String(inputs[1].value)]).toFixed(2)} — ${inputs[2].value}x ${inputs[1].value}`;
+        var text = `R$ ${(inputs[2].value * prices[String(inputs[1].value)]).toFixed(2)} — ${inputs[2].value}x ${inputs[1].value}`;
 
         if (existingOvvwLine) {
             if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
@@ -161,7 +161,7 @@ function updateOverview() {
         }
 
         total += inputs[2].value * prices[String(inputs[1].value)];
-        document.getElementById('total').textContent = `R$${total.toFixed(2)}`;
+        document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
         console.log(inputs[0])
     })
 }

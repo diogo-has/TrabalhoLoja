@@ -94,6 +94,9 @@ p {
     background-color: orange;
     width: 40%;
     padding: 20px;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .buttons {

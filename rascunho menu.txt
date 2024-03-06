@@ -1,0 +1,34 @@
+pollos
+	pollos peq.
+	pollos grande
+	pollos picantes peq.
+	pollos picante grande
+	pollos fiesta
+burritos
+	basico
+	novo mexico
+	albuquerque
+	santa fe
+	chile
+acompanhamentos
+	papas fritas
+	papas rizadas
+	pollos nuggets
+	nachos
+	onion rings
+sobremesas
+	churros
+	casquinha peq
+	casquinha grande
+	sunday peq
+	sunday grande
+bebidas
+	refrigerante pequeno
+	refrigerante medio
+	refrigerante grande
+	suco
+	agua
+
+	
+	
+	
