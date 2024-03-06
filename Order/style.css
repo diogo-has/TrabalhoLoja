@@ -56,13 +56,18 @@ h2:hover {
     gap: 5px;
 }
 
+#item {
+    min-width: 380px;
+}
+
 .overview {
-    float: right;
+    position: fixed;
+    right: 0;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     background-color: orange;
     width: 40%;
-    height: 100vh;
     padding: 20px;
 }
 

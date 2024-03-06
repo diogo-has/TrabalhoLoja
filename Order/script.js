@@ -2,7 +2,7 @@ var counter = 1;
 
 var menu = {
     'categoria': [
-        'Selecione uma categoria primeiro'
+        'Selecione a categoria primeiro'
     ], 
     'hamburgueres': [
         'Hamburguer1',
@@ -60,22 +60,24 @@ var prices = {
     'Combo4': 24.99, 'Combo5': 25.99
 }
 
-function test() {
+function clone() {
     if (counter >= 15) {
         alert("Máximo de 15 itens por pedido.\nCaso deseje pedir mais, favor fazer múltiplos pedidos.");
         return;
-    };
+    }
 
     counter++;
-    var optHTML = document.getElementById("order1").innerHTML;
-    var opts = document.getElementById("orders");
+    var orderHTML = document.getElementById("order1").innerHTML;
+    var orders = document.getElementById("orders");
 
-    var newOpt = document.createElement('div');
-    newOpt.classList.add('order');
-    newOpt.id = 'order' + counter;
-    newOpt.innerHTML = optHTML;
+    var newOrder = document.createElement('div');
+    newOrder.classList.add('order');
+    newOrder.id = 'order' + counter;
+    newOrder.innerHTML = orderHTML;
+    newOrder.getElementsByClassName('input')[1].innerHTML =
+    "<option selected>Selecione a categoria primeiro</option>";
 
-    opts.appendChild(newOpt);
+    orders.appendChild(newOrder);
 
     console.log(document.getElementsByName('type'))
         
@@ -93,12 +95,10 @@ function updateSelects() {
             if (existingOpt) return false;
             inputs[1].innerHTML = '';
 
-            inputs[2].value = 1;
+            inputs[2].value = 0;
         })
 
         menu[String(inputs[0].value)].forEach(item => {
-            var existingOpt = document.getElementById(item + '-opt-' + order.id);
-            if (existingOpt) return false;
             var opt = document.createElement('option');
             opt.value = item;
             opt.textContent = item;
@@ -119,18 +119,20 @@ function updateOverview() {
     Array.from(o).forEach((order) => {
         var inputs = order.getElementsByClassName('input');
         var existingOvvwLine = document.getElementById(order.id + '-overview');
-
+        
         if (existingOvvwLine) {
-            existingOvvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = `;
+            if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
+                existingOvvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = R$${prices[String(inputs[1].value)] * inputs[2].value}`;
+            } else existingOvvwLine.remove();
         } else {
             var ovvwLine = document.createElement('p');
             ovvwLine.className = 'ovvwLine';
             ovvwLine.id = order.id + "-overview";
-            ovvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = `;
-    
-            overview.appendChild(ovvwLine);
+            ovvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = R$${prices[String(inputs[1].value)] * inputs[2].value}`;
+            
+            if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
+                overview.appendChild(ovvwLine);
+            } else ovvwLine.remove();
         }
-        
-        // overview.textContent += `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = `
     })
 }
