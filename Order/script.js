@@ -1,9 +1,7 @@
-var counter = 1;
-
 var menu = {
     'categoria': [
         'Selecione a categoria primeiro'
-    ], 
+    ],
     'hamburgueres': [
         'Hamburguer1',
         'Hamburguer2',
@@ -60,7 +58,8 @@ var prices = {
     'Combo4': 24.99, 'Combo5': 25.99
 }
 
-function clone() {
+var counter = 1;
+function addOrder() {
     if (counter >= 15) {
         alert("Máximo de 15 itens por pedido.\nCaso deseje pedir mais, favor fazer múltiplos pedidos.");
         return;
@@ -75,12 +74,29 @@ function clone() {
     newOrder.id = 'order' + counter;
     newOrder.innerHTML = orderHTML;
     newOrder.getElementsByClassName('input')[1].innerHTML =
-    "<option selected>Selecione a categoria primeiro</option>";
+        "<option selected>Selecione a categoria primeiro</option>";
 
     orders.appendChild(newOrder);
 
     console.log(document.getElementsByName('type'))
-        
+
+}
+
+function removeOrder() {
+    if (counter == 1) return;
+
+    var orders = document.getElementById("orders");
+    var order = orders.getElementsByClassName("order").item(counter - 1);
+    var existingOvvwLine = document.getElementById(order.id + '-overview');
+
+    order.remove();
+    if (existingOvvwLine) {
+        var ovvwCategory = existingOvvwLine.parentElement;
+        existingOvvwLine.remove();
+        if (ovvwCategory.children.length == "1") ovvwCategory.style.display = 'none';
+    }
+
+    counter--;
 }
 
 function updateSelects() {
@@ -102,7 +118,7 @@ function updateSelects() {
             var opt = document.createElement('option');
             opt.value = item;
             opt.textContent = item;
-            opt.id = item + '-opt-' + order.id; 
+            opt.id = item + '-opt-' + order.id;
             opt.className = 'item';
 
             inputs[1].appendChild(opt);
@@ -115,24 +131,37 @@ function updateOverview() {
     var orders = document.getElementById("orders");
     var o = orders.getElementsByClassName("order");
     var overview = document.getElementById("overview");
+    var total = 0.0;
 
     Array.from(o).forEach((order) => {
         var inputs = order.getElementsByClassName('input');
         var existingOvvwLine = document.getElementById(order.id + '-overview');
-        
+        var text = `R$${(inputs[2].value * prices[String(inputs[1].value)]).toFixed(2)} — ${inputs[2].value}x ${inputs[1].value}`;
+
         if (existingOvvwLine) {
             if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
-                existingOvvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = R$${prices[String(inputs[1].value)] * inputs[2].value}`;
-            } else existingOvvwLine.remove();
-        } else {
+                existingOvvwLine.textContent = text;
+            } else {
+                // existingOvvwLine.parentElement.style.display = 'none';
+                var ovvwCategory = existingOvvwLine.parentElement;
+                existingOvvwLine.remove();
+                if (ovvwCategory.children.length == "1") ovvwCategory.style.display = 'none';
+            }
+        } else if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
             var ovvwLine = document.createElement('p');
             ovvwLine.className = 'ovvwLine';
             ovvwLine.id = order.id + "-overview";
-            ovvwLine.textContent = `${inputs[1].value} --- R$${prices[String(inputs[1].value)]} * ${inputs[2].value} = R$${prices[String(inputs[1].value)] * inputs[2].value}`;
-            
-            if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
-                overview.appendChild(ovvwLine);
-            } else ovvwLine.remove();
+            ovvwLine.textContent = text;
+
+            var ovvwCategory = document.getElementById(String(inputs[0].value))
+            console.log(ovvwCategory)
+            ovvwCategory.style.display = 'flex';
+            ovvwCategory.appendChild(ovvwLine);
+
         }
+
+        total += inputs[2].value * prices[String(inputs[1].value)];
+        document.getElementById('total').textContent = `R$${total.toFixed(2)}`;
+        console.log(inputs[0])
     })
 }

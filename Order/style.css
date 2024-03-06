@@ -1,10 +1,11 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "Inria Sans", sans-serif;
 }
 
 h1 {
-    padding-bottom: 40px;
+    padding-bottom: 17px;
 }
 
 h2 {
@@ -19,6 +20,19 @@ h2:hover {
     padding: 10px 15px;
     transform: scale(1.05);
     cursor: pointer ;
+}
+
+h3 {
+    font-size: 1.2rem !important;
+    color: rgb(142, 92, 0);
+    border-bottom: rgb(142, 92, 0) 1px solid;
+    padding-bottom: 5px;
+    margin-bottom: 15px !important;
+}
+
+p {
+    padding: 0;
+    line-height: 5px;
 }
 
 .nav {
@@ -37,8 +51,8 @@ h2:hover {
 .orders {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     gap: 25px;
 }
 
@@ -53,22 +67,39 @@ h2:hover {
 .order {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0px;
+}
+
+#type {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #item {
     min-width: 380px;
+    border-radius: 0;
+    border-left: white 1px solid;
+    border-right: white 1px solid;
+}
+
+#quantity {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 .overview {
-    position: fixed;
-    right: 0;
-    z-index: 1;
+    float: right;
     display: flex;
     flex-direction: column;
     background-color: orange;
     width: 40%;
     padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .add {
@@ -81,17 +112,27 @@ h2:hover {
     border-radius: 999px;
 }
 
-select {
-    padding: 5px;
-    border-radius: 10px;
-    border: #888 1px solid;
-    font-size: 1.4rem !important;
+.remove {
+    background-color: lightcoral;
 }
 
-input {
-    padding: 4px;
-    height: 44px;
-    border-radius: 10px;
+.ovvwText {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+select {
+    padding: 5px;
     border: #888 1px solid;
+    border-radius: 15px;
     font-size: 1.4rem !important;
 }
