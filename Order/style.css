@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+h1 {
+    padding-bottom: 40px;
+}
+
 h2 {
     font-size: 1.3rem !important;
     padding: 10px;
@@ -22,4 +26,67 @@ h2:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.form {
+    padding: 20px;
+    width: 60%;
+    position: absolute;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.order {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.overview {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    width: 40%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.add {
+    height: 40px;
+    width: 40px;
+    font-size: 2rem;
+    line-height: 1px;
+    background-color: lightgreen;
+    border: black 1px solid;
+    border-radius: 999px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 10px;
+    border: #888 1px solid;
+    font-size: 1.4rem !important;
+}
+
+input {
+    padding: 4px;
+    height: 44px;
+    border-radius: 10px;
+    border: #888 1px solid;
+    font-size: 1.4rem !important;
 }
