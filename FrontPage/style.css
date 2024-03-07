@@ -11,10 +11,10 @@
 }
 
 body {
-    background-image: url('../Images/menu-background.jpg');
+    background-image: url('../Images/front-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 0 0 0 1000px rgba(237, 184, 9, 0.626);
+    box-shadow: inset 0 0 0 1000px rgba(237, 146, 9, 0.626);
     height: 100vh;
 }
 

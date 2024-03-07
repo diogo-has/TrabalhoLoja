@@ -2,60 +2,65 @@ var menu = {
     'categoria': [
         'Selecione a categoria primeiro'
     ],
-    'hamburgueres': [
-        'Hamburguer1',
-        'Hamburguer2',
-        'Hamburguer3',
-        'Hamburguer4',
-        'Hamburguer5'
+    'pollos': [
+        'Pollos Peq.',
+        'Pollos Grande',
+        'Pollos Calientes Peq.',
+        'Pollos Calientes Grande',
+        'Pollos Fiesta'
     ],
-    'frango': [
-        'Frango1',
-        'Frango2',
-        'Frango3',
-        'Frango4',
-        'Frango5'
+    'burritos': [
+        'Básico',
+        'Nuevo Mexico',
+        'Albuquerque',
+        'Santa Fe',
+        'Chile'
     ],
     'acompanhamentos': [
-        'Acompanhamento1',
-        'Acompanhamento2',
-        'Acompanhamento3',
-        'Acompanhamento4',
-        'Acompanhamento5'
+        'Papas Fritas',
+        'Papas Rizadas',
+        'Pollos Nuggets',
+        'Nacho\'s Nachos',
+        'Cebolla Rings'
     ],
     'bebidas': [
-        'Bebida1',
-        'Bebida2',
-        'Bebida3',
-        'Bebida4',
-        'Bebida5'
+        'Refrigerante Peq.',
+        'Refrigerante Médio',
+        'Refrigerante Grande',
+        'Suco',
+        'Água'
     ],
-    'combos': [
-        'Combo1',
-        'Combo2',
-        'Combo3',
-        'Combo4',
-        'Combo5'
+    'sobremesas': [
+        'Churros de Chocolate',
+        'Churros de Dulce de Leche',
+        'Churros de Nutella',
+        'Helado Peq.',
+        'Helado Grande'
     ]
 };
 
 var prices = {
-    'Hamburguer1': 10.99, 'Hamburguer2': 12.99,
-    'Hamburguer3': 13.99, 'Hamburguer4': 14.99,
-    'Hamburguer5': 15.99,
+    'Pollos Peq.': 9.90, 'Pollos Grande': 15.90,
+    'Pollos Calientes Peq.': 10.90,
+    'Pollos Calientes Grande': 16.90,
+    'Pollos Fiesta': 20.90,
 
-    'Frango1': 5.99, 'Frango2': 6.99, 'Frango3': 7.99,
-    'Frango4': 8.99, 'Frango5': 9.99,
+    'Básico': 15.90, 'Nuevo Mexico': 16.90,
+    'Albuquerque': 17.50, 'Santa Fe': 17.50,
+    'Chile': 18.50,
 
-    'Acompanhamento1': 8.99, 'Acompanhamento2': 9.99,
-    'Acompanhamento3': 8.99, 'Acompanhamento4': 8.99,
-    'Acompanhamento5': 8.99,
+    'Papas Fritas': 13.90, 'Papas Rizadas': 14.90,
+    'Pollos Nuggets': 11.90, 'Nacho\'s Nachos': 14.90,
+    'Cebolla Rings': 14.90,
 
-    'Bebida1': 4.99, 'Bebida2': 5.99, 'Bebida3': 6.99,
-    'Bebida4': 7.99, 'Bebida5': 8.99,
+    'Refrigerante Peq.': 10.90, 'Refrigerante Médio': 11.90,
+    'Refrigerante Grande': 12.90, 'Suco': 9.90,
+    'Água': 5.90,
 
-    'Combo1': 20.99, 'Combo2': 22.99, 'Combo3': 23.99,
-    'Combo4': 24.99, 'Combo5': 25.99
+    'Churros de Chocolate': 15.90,
+    'Churros de Dulce de Leche': 17.90,
+    'Churros de Nutella': 20.90,
+    'Helado Peq.': 2.90, 'Helado Grande': 5.90
 }
 
 var counter = 1;
@@ -136,7 +141,7 @@ function updateOverview() {
     Array.from(o).forEach((order) => {
         var inputs = order.getElementsByClassName('input');
         var existingOvvwLine = document.getElementById(order.id + '-overview');
-        var text = `R$ ${(inputs[2].value * prices[String(inputs[1].value)]).toFixed(2)} — ${inputs[2].value}x ${inputs[1].value}`;
+        var text = `R$ ${(inputs[2].value * prices[String(inputs[1].value)]).toFixed(2)} - ${inputs[2].value}x ${inputs[1].value}`;
 
         if (existingOvvwLine) {
             if (prices[String(inputs[1].value)] && inputs[2].value != 0) {
@@ -160,7 +165,7 @@ function updateOverview() {
 
         }
 
-        total += inputs[2].value * prices[String(inputs[1].value)];
+        if (!isNaN(prices[String(inputs[1].value)])) total += inputs[2].value * prices[String(inputs[1].value)];
         document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
         console.log(inputs[0])
     })

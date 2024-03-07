@@ -2,12 +2,24 @@
     padding: 0;
     margin: 0;
     font-family: "Inria Sans", sans-serif;
+    text-align: justify;
+}
+
+body {
+    background-image: url('../Images/menu-background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw 150vh;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 1000px rgba(237, 146, 9, 0.626);
+    padding-bottom: 50px;
 }
 
 h2 {
     font-size: 1.3rem !important;
     padding: 10px;
     transition: all 100ms ease;
+    color:  rgb(255, 231, 195);
+    text-shadow: 2px 2px 7px black;
     
 }
 
@@ -23,6 +35,8 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    color:  rgb(255, 231, 195);
+    text-shadow: 3px 3px 7px black;
 }
 
 .nav {
@@ -45,11 +59,28 @@ h1 {
     align-items: center;
     gap: 15px;
     margin: 20px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: rgb(172, 106, 7) 1px solid !important;
+    border-radius: 10px !important;
+}
+
+.card-img-top{
+    border-radius: 10px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }
 
 .card-text {
     color: #888;
+}
+
+.card-body {
+    min-height: 136px;
 }
 
 @media screen and (max-width: 800px) {
