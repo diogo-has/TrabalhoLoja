@@ -46,3 +46,30 @@ img {
     filter: drop-shadow(0 0 .4rem black);
 }
 
+.up {
+    animation: show-up 1s ease;
+}
+
+@keyframes show-up {
+    0% {transform: translateY(-300px); opacity: 0;}
+    100% {transform: translateY(0px);}
+}
+
+.left {
+    animation: show-left 1s ease;
+}
+
+@keyframes show-left {
+    0% {transform: translateX(100px); opacity: 0;}
+    100% {transform: translateX(0px);}
+}
+
+.right {
+    animation: show-right 1s ease;
+}
+
+@keyframes show-right {
+    0% {transform: translateX(-100px); opacity: 0;}
+    100% {transform: translateX(0px);}
+}
+

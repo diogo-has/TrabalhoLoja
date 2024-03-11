@@ -68,12 +68,21 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border: rgb(172, 106, 7) 1px solid !important;
     border-radius: 10px !important;
+    transition: all 200ms ease;
+}
+
+.card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    transition: all 200ms ease;
 }
 
 .card-img-top{
     border-radius: 10px !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    border-bottom: rgba(0, 0, 0, 0.125) 1px solid;
+    width: 286px;
+    height: 204px;
 }
 
 .card-text {
@@ -85,7 +94,35 @@ h1 {
 }
 
 @media screen and (max-width: 800px) {
-    .itens {
-        flex-direction: column;
+
+    h1 {
+        font-size: 2.5rem !important;
     }
+}
+
+h1 {
+    animation: show-up 1s ease;
+}
+
+@keyframes show-up {
+    0% {transform: translateY(-100px); opacity: 0;}
+    100% {transform: translateY(0px);}
+}
+
+.left {
+    animation: show-left 1s ease;
+}
+
+@keyframes show-left {
+    0% {transform: translateX(100px); opacity: 0;}
+    100% {transform: translateX(0px);}
+}
+
+.right {
+    animation: show-right 1s ease;
+}
+
+@keyframes show-right {
+    0% {transform: translateX(-100px); opacity: 0;}
+    100% {transform: translateX(0px);}
 }

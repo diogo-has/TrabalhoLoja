@@ -15,7 +15,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 </head>
@@ -29,12 +31,12 @@
         </div>
     </header>
 
-    <div class="form">
+    <div class="form right">
         <h1>Selecione os itens do seu pedido:</h1>
         <div class="wrap">
             <div class="orders" id="orders">
                 <div class="order" id="order1">
-                    <select onchange="updateSelects(); updateOverview()" name="type" id="type" class="input">
+                    <select onchange="updateSelects();" name="type" id="type" class="input">
                         <option selected value='categoria'>Categoria</option>
                         <option value='pollos'>Pollos</option>
                         <option value="burritos">Burritos</option>
@@ -61,7 +63,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <button onclick="removeOrder()" class="add remove">
+                <button onclick="removeOrder(); updateOverview()" class="add remove">
                     <span class="material-symbols-outlined">close</span>
                 </button>
                 <button onclick="addOrder()" class="add">
@@ -69,16 +71,18 @@
                 </button>
             </div>
         </div>
-        <h1>Enviar pedido</h1>
+
         <div class="envio">
-            <input type="text" placeholder="Seu Nome">
-            <textarea placeholder="Observações do pedido" id="" cols="30" rows="10"></textarea>
-            <button class="zap"><i class="fa fa-whatsapp" style="font-size: 1.4rem;"></i> Enviar</button>
+            <h1 style="padding-bottom: 0px;">Enviar pedido</h1>
+            <input type="text" id="nome" placeholder="Seu Nome">
+            <textarea placeholder="Observações do pedido" id="observ" cols="30" rows="10"></textarea>
+            <button class="zap" onclick="enviar()"><i class="fa fa-whatsapp" style="font-size: 1.4rem;"></i>
+                Enviar</button>
         </div>
 
     </div>
 
-    <div class="overview" id="overview">
+    <div class="overview left" id="overview">
         <h1>Resumo do Pedido</h1>
         <div class="ovvwText" id="pollos">
             <h3>Pollos</h3>
@@ -100,6 +104,10 @@
             <h4><span id="total"></span></h4>
         </div>
     </div>
+
+    <button class="ovvwBtn" id="ovvwBtn" onclick="toggleOvvw()">
+        <span style="font-size: 1.8rem;" class="material-symbols-outlined">shopping_cart</span>
+    </button>
 
     <footer></footer>
 </body>

@@ -170,3 +170,46 @@ function updateOverview() {
         console.log(inputs[0])
     })
 }
+
+function toggleOvvw() {
+    if (document.getElementById('overview').style.display == 'none') document.getElementById('overview').style.display = 'flex'; else document.getElementById('overview').style.display = 'none';
+}
+
+function enviar() {
+    var nome = document.getElementById('nome').value;
+    if (nome == '') return;
+
+    var date = new Date();
+    date = formatDate(date);
+
+    var obs = document.getElementById('observ').value;
+
+    var msg = `${nome}\n${date}\n\n`;
+    
+    var orders = document.getElementById("orders");
+    var o = orders.getElementsByClassName("order");
+
+    var ordersText = '';
+    Array.from(o).forEach((order) => {
+        var inputs = order.getElementsByClassName('input');
+        if (inputs[2].value == 0) return false;
+        ordersText += `${inputs[2].value}x ${inputs[1].value}\n`;
+    })
+
+    if (ordersText == '') return;
+    msg += `${ordersText}\nObservações: ${obs}`;
+
+    alert(msg + "\n--------------------------\nConfirmar envio?");
+    window.open(`https://wa.me/55419999999999?text=${window.encodeURIComponent(msg)}`, '_blank');
+}
+
+function formatDate(item){
+    var options = {
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+    }
+
+    return item.toLocaleString("pt-BR", options);
+}
