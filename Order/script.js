@@ -199,7 +199,7 @@ function enviar() {
     if (ordersText == '') return;
     msg += `${ordersText}\nObservações: ${obs}`;
 
-    alert(msg + "\n--------------------------\nConfirmar envio?");
+    confirm(msg + "\n--------------------------\nConfirmar envio?");
     window.open(`https://wa.me/55419999999999?text=${window.encodeURIComponent(msg)}`, '_blank');
 }
 
