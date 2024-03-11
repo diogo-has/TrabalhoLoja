@@ -8,9 +8,9 @@
 body {
     background-image: url('../Images/menu-background.jpg');
     background-repeat: no-repeat;
-    background-size: 100vw 150vh;
+    background-size: cover;
     background-attachment: fixed;
-    box-shadow: inset 0 0 0 1000px rgba(237, 146, 9, 0.626);
+    box-shadow: inset 0 0 0 99999px rgba(237, 146, 9, 0.626);
     padding-bottom: 50px;
     position: relative;
 }
