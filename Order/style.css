@@ -281,6 +281,7 @@ button:active {
     border-radius: 999px;
     background-color: yellow;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 999;
 }
 
 @media screen and (max-width: 1300px) {
